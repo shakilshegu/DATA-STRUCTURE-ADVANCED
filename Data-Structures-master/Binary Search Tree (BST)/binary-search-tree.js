@@ -13,7 +13,7 @@ class BinarySearchtree {
         this.root = null
     }
 
-    // Insert value
+    // Insert valueZ
     insert(value){
         const node = new Node(value)
         if(this.root === null){

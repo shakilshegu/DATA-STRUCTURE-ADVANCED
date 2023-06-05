@@ -1,7 +1,6 @@
 class Graph {
     constructor(){
-        this.adjacency
-        List = {}
+        this.adjacencyList = {}
     }
 
     addVertex(vertex){
@@ -38,7 +37,6 @@ class Graph {
     bfs(startVertex){
         let visited = new Set()
         let queue = []
-
         visited.add(startVertex)
         queue.push(startVertex)
         while(queue.length){
@@ -52,6 +50,18 @@ class Graph {
             }
         }
     }
+
+    isCyclic() {
+        const visited = new Set();
+        for (let vertex in this.adjacencyList) {
+          if (!visited.has(vertex)) {
+            if (this.dfs(vertex, visited, null)) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
 
     display(){
         for(let vertex in this.adjacencyList){
@@ -67,3 +77,4 @@ graph.display()         // A -> B | B -> A,C | C -> B
 
 graph.dfs('A')          // A B c
 graph.bfs('A')          // A B C    
+console.log("Is Cyclic:", graph.isCyclic()); 

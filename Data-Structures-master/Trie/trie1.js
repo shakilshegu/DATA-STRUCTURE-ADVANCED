@@ -37,8 +37,6 @@ class Trie {
         return true
     }
 
-
-
     delete(word) {
         this.deleteHelper(this.root, word, 0)
     }
